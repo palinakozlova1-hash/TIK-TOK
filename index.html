@@ -1,0 +1,15 @@
+  <!doctype html>
+<html>
+<head><meta charset="utf-8"><title>TikTok OAuth Catcher</title></head>
+<body>
+<h2>TikTok OAuth – auth_code catcher</h2>
+<p id="out">Waiting...</p>
+<script>
+  const p = new URLSearchParams(location.search);
+  const code = p.get('auth_code') || p.get('code');
+  document.getElementById('out').textContent =
+    code ? ('auth_code: ' + code) : 'No auth_code in query params';
+  console.log('Full params:', Object.fromEntries(p.entries()));
+</script>
+</body>
+</html>
